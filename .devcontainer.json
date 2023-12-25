@@ -1,7 +1,6 @@
 {
-    "image": "mcr.microsoft.com/azure-powershell:11.1.0-ubuntu-22.04",
-    "postStartCommand": "pwsh",
-    "features": {
-        "ghcr.io/rchaganti/vsc-devcontainer-features/azurebicep:1"
-    }
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "postStartCommand": "pwsh"
 }
