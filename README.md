@@ -26,7 +26,13 @@ Dev Containers: Rebuild Container
 npm install -g @devcontainers/cli
 ```
 
-```
-devcontainer up --workspace-folder .
+```sh
+devcontainer up --workspace-folder . --remove-existing-container
 devcontainer exec --workspace-folder . pwsh
 ```
+
+If you have made changes to the Dockerfile, then run the following:
+``` sh
+devcontainer up --workspace-folder . --remove-existing-container --build-no-cache
+```
+

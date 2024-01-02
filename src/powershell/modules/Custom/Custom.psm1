@@ -29,4 +29,23 @@ Function Set-Subscription {
 
 }
 
+Function Load-Env {
+    param(
+        $EnvFile
+    )
+
+    # Add code here . . .
+}
+
+Function Connect-Environment {
+    param(
+        $TenantId = $env:AZURE_TENANT_ID,
+        $SubscriptionId = $env:AZURE_SUBSCRIPTION_ID
+    )
+
+    Connect-AzAccount -TenantId $TenantId -SubscriptionId $SubscriptionId -UseDeviceAuthentication
+}
+
+Export-ModuleMember -Function Load-Env
 Export-ModuleMember -Function Set-Subscription
+Export-Modulemember -Function Connect-Environment
