@@ -2,5 +2,7 @@
     "build": {
         "dockerfile": "Dockerfile"
     },
-    "postStartCommand": "pwsh"
+    "features": {
+        "ghcr.io/rio/features/chezmoi:1": {}
+    }
 }
