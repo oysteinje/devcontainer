@@ -31,8 +31,19 @@ devcontainer up --workspace-folder . --remove-existing-container
 devcontainer exec --workspace-folder . pwsh
 ```
 
+If  you have made changes to the devcontainer setttings, then run the following: 
+
+``` sh
+devcontainer up --workspace-folder . --remove-existing-container
+```
+
 If you have made changes to the Dockerfile, then run the following:
 ``` sh
 devcontainer up --workspace-folder . --remove-existing-container --build-no-cache
+```
+
+You can also use your personal dotfiles repository. Here I use my own personal dotfiles repository.
+``` sh
+devcontainer up --workspace-folder . --remove-existing-container --dotfiles-repository https://github.com/oysteinje/dotfiles.git
 ```
 
