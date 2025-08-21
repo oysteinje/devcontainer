@@ -1,0 +1,14 @@
+{
+  "name": "Personal Development Container",
+  "image": "oysteinje/personal-devcontainer:latest",
+  "features": {},
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.vscode-json"
+      ]
+    }
+  },
+  "postCreateCommand": "export PATH=\"~/.local/bin:$PATH\" && claude --version",
+  "remoteUser": "root"
+}
