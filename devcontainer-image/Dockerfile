@@ -44,7 +44,12 @@ RUN curl -L https://github.com/neovim/neovim/releases/download/v0.10.1/nvim-linu
     && rm nvim-linux64.tar.gz
 
 # Install Azure CLI
-#RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+RUN curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | tee /etc/apt/keyrings/microsoft.gpg > /dev/null \
+    && chmod go+r /etc/apt/keyrings/microsoft.gpg \
+    && echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/azure-cli/ $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/azure-cli.list \
+    && apt-get update \
+    && apt-get install -y azure-cli \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install PowerShell
 RUN wget -q "https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb" \
