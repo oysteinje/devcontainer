@@ -44,7 +44,7 @@ RUN curl -L https://github.com/neovim/neovim/releases/download/v0.10.1/nvim-linu
     && rm nvim-linux64.tar.gz
 
 # Install Azure CLI
-RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+#RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
 # Install PowerShell
 RUN wget -q "https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb" \
