@@ -1,6 +1,0 @@
-{
-    "build": {
-        "dockerfile": "Dockerfile"
-    },
-    "postAttachCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}"
-}

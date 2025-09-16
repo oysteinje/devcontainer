@@ -9,6 +9,5 @@
       ]
     }
   },
-  "postCreateCommand": "export PATH=\"~/.local/bin:$PATH\" && claude --version",
   "remoteUser": "root"
 }
