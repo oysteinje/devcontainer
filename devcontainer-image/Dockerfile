@@ -72,7 +72,6 @@ RUN pwsh -Command "Install-Module -Name Az -Force -AllowClobber -Scope AllUsers"
 
 # Install Claude Code
 RUN curl -fsSL https://claude.ai/install.sh | bash
-ENV PATH="/root/.local/bin:$PATH"
 
 ## Install LazyVim
 #RUN git clone https://github.com/LazyVim/starter /root/.config/nvim \
