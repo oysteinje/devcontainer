@@ -43,6 +43,14 @@ RUN curl -L https://github.com/neovim/neovim/releases/download/v0.10.1/nvim-linu
     && ln -s /opt/nvim-linux64/bin/nvim /usr/local/bin/nvim \
     && rm nvim-linux64.tar.gz
 
+# Install GitHub CLI
+RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+    && chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+    && apt-get update \
+    && apt-get install -y gh \
+    && rm -rf /var/lib/apt/lists/*
+
 # Install Azure CLI
 RUN curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | tee /etc/apt/keyrings/microsoft.gpg > /dev/null \
     && chmod go+r /etc/apt/keyrings/microsoft.gpg \
@@ -65,8 +73,8 @@ RUN pwsh -Command "Install-Module -Name Az -Force -AllowClobber -Scope AllUsers"
 # Install Claude Code
 RUN curl -fsSL https://claude.ai/install.sh | bash
 
-# Install LazyVim
-RUN git clone https://github.com/LazyVim/starter /root/.config/nvim \
-    && rm -rf /root/.config/nvim/.git
+## Install LazyVim
+#RUN git clone https://github.com/LazyVim/starter /root/.config/nvim \
+#    && rm -rf /root/.config/nvim/.git
 
 CMD ["/bin/bash"]
